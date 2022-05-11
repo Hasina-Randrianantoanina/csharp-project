@@ -1,0 +1,81 @@
+﻿<Window x:Class="ebosy.vue.EnvoyerMail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ebosy.vue"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="viewParrain" Height="450" Width="300"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0"
+                       Foreground="teal"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"
+                       TextWrapping="Wrap"
+                       FontWeight="Bold">
+                <TextBlock.Text>
+                    ENVOYER LE CODE À L'ENSEIGNANT
+                </TextBlock.Text>
+            </TextBlock>
+            <Button Height="30"
+                        Width="30"
+                        HorizontalAlignment="Right"
+                        BorderThickness="0"
+                        x:Name="ButtonClose"
+                        Margin="0,15,14.6,14.2" Click="ButtonClose_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="icons/close.png"/>
+                </Button.Background>
+            </Button>
+            <StackPanel Grid.Row="1">
+                <TextBox materialDesign:HintAssist.Hint="De: "
+                         x:Name="TextBoxFromMail"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         Margin="20,10,20,10"
+                         Foreground="Teal"
+                         FontSize="16"/>
+
+                <PasswordBox materialDesign:HintAssist.Hint="MOT DE PASSE"
+                         x:Name="PasswordBox"
+                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                         Margin="20,10,20,10"
+                         Foreground="teal"
+                         FontSize="16"/>
+                <TextBox materialDesign:HintAssist.Hint="VERS"
+                         x:Name="TextBoxToMail" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         Margin="20,10,20,10"
+                         Foreground="Teal"
+                         FontSize="16"/>
+            </StackPanel>
+
+            <Grid Grid.Row="3"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+                <Button Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                        Background="teal"
+                        x:Name="ButtonEnvoyer" Click="ButtonEnvoyer_Click">
+                    <materialDesign:PackIcon
+                        Kind="Send"
+                        Height="24"
+                        Width="24"
+                        Foreground="White"/>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

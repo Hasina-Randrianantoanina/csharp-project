@@ -1,0 +1,252 @@
+﻿<Window x:Class="ebosy.vue.Admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:ebosy.vue"
+        mc:Ignorable="d"
+       Title="Espace Adminstrateur" Height="768" Width="1024"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <Grid Background="#F2F2F2">
+            <Grid Background="Transparent">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="12*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+                    <Grid.Background>
+                        <SolidColorBrush Color="#008080"/>
+                    </Grid.Background>
+                    <StackPanel>
+
+                        <ListView 
+                              Background="Transparent"
+                              BorderBrush="Transparent"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Margin="0,50,0,50">
+                            <Button
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Foreground="White"
+                            Style="{StaticResource MaterialDesignFloatingActionLightButton}">
+
+                                <materialDesign:PackIcon
+                                Kind="Home"
+                                Height="24"
+                                Width="24"/>
+                                <Button.ToolTip>
+                                    <ToolTip Background="Teal" 
+                                         Content="Accueil"/>
+                                </Button.ToolTip>
+                            </Button>
+
+                            <Button
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Foreground="White"
+                            Style="{StaticResource MaterialDesignFloatingActionLightButton}">
+                                <materialDesign:PackIcon
+                                Kind="NotificationsActive"
+                                Height="24"
+                                Width="24" />
+                                <Button.ToolTip>
+                                    <ToolTip Background="Teal" 
+                                         Content="Notification"/>
+                                </Button.ToolTip>
+                            </Button>
+
+                            <Button
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Foreground="White"
+                            Style="{StaticResource MaterialDesignFloatingActionLightButton}">
+                                <materialDesign:PackIcon
+                                Kind="VideoFilm"
+                                Height="24"
+                                Width="24"/>
+                                <Button.ToolTip>
+                                    <ToolTip Background="Teal" 
+                                         Content="Visio-conférence"/>
+                                </Button.ToolTip>
+                            </Button>
+
+                            <Button
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Foreground="White"
+                                x:Name="ButtonChat"
+                            
+                            Style="{StaticResource MaterialDesignFloatingActionLightButton}" Click="ButtonChat_Click">
+                                <materialDesign:PackIcon
+                                Kind="Wechat"
+                                Height="24"
+                                Width="24"/>
+                                <Button.ToolTip>
+                                    <ToolTip Background="Teal" 
+                                         Content="Tchat"/>
+                                </Button.ToolTip>
+                            </Button>
+
+                            <Button
+                            
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Foreground="White"
+                            Style="{StaticResource MaterialDesignFloatingActionLightButton}">
+                                <materialDesign:PackIcon
+                                Kind="Logout"
+                                Height="24"
+                                Width="24"/>
+                                <Button.ToolTip>
+                                    <ToolTip Background="Teal" 
+                                         Content="Déconnexion"/>
+                                </Button.ToolTip>
+                            </Button>
+
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListViewItem">
+                                                <Border 
+                                                Height="50"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                Background="{TemplateBinding Background}"
+                                                SnapsToDevicePixels="True"
+                                                Padding="{TemplateBinding Padding}">
+                                                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                              VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
+
+                                                </Border>
+                                                <ControlTemplate.Triggers>
+                                                    <MultiTrigger>
+                                                        <MultiTrigger.Conditions>
+                                                            <Condition Property="IsMouseOver" Value="True"/>
+                                                        </MultiTrigger.Conditions>
+                                                        <Setter Property="Background"
+                                                        Value="#008080"
+                                                        />
+                                                        <Setter Property="BorderBrush"
+                                                       
+                                                        Value="#F2F2F2"/>
+                                                    </MultiTrigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Column="1">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="10*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid 
+                      Background="Teal"
+                      Grid.Row="0" 
+                      Grid.ColumnSpan="2" 
+                      Margin="0,0,-0.4,698" 
+                      Grid.RowSpan="2">
+
+                        <materialDesign:ColorZone
+                        Background="Teal"
+                        Mode="PrimaryMid">
+                            <DockPanel>
+                                <StackPanel 
+                                Orientation="Horizontal"
+                                materialDesign:RippleAssist.IsCentered="True">
+                                </StackPanel>
+                            </DockPanel>
+                        </materialDesign:ColorZone>
+
+                        <materialDesign:Chip
+                        HorizontalAlignment="Right"
+                        Margin="0 0 75 0"
+                        Foreground="Teal"
+                        Background="White"
+                        Content="Administrateur">
+                            <materialDesign:Chip.Icon>
+                                <Image/>
+                            </materialDesign:Chip.Icon>
+                        </materialDesign:Chip>
+
+                        <Button Height="30"
+                        Width="30"
+                        HorizontalAlignment="Right"
+                        BorderThickness="0"
+                        x:Name="ButtonClose"
+                        Margin="0,15,14.6,14.2" Click="ButtonClose_Click">>
+                            <Button.Background>
+                                <ImageBrush ImageSource="icons/close.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Grid>
+                            <Image Source="image/e-bosy2.png"
+                               Margin="0,0,0,0"
+                               Width="100"
+                               HorizontalAlignment="Left"/>
+                        </Grid>
+
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <ContentControl x:Name="ContentControlAccueilAdmin"
+                            Grid.Column="0"
+                               
+                                Margin="20"
+                                Grid.RowSpan="2"/>
+                        <StackPanel Orientation="Vertical"
+                        Grid.Column="1">
+                            <Button x:Name="ButtonListeParent"
+                                Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+                                ToolTip="Liste des Parents"
+                                 Margin="0,20,0,20" Click="ButtonListeParent_Click">
+                                <Image Source="icons/parent.png"/>
+                            </Button>
+                            <Button x:Name="ButtonListeProfesseur"
+                                Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+                                ToolTip="Liste des professeurs"
+                                Margin="0,0,0,20" Click="ButtonListeProfesseur_Click">
+                                <Image Source="icons/icons8_profile_48px.png"/>
+                            </Button>
+                            <Button x:Name="ButtonCalendrierProfesseur"
+                                Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+                                ToolTip="Calendrier des professeurs"
+                                Margin="0,0,0,20" Click="ButtonCalendrierProfesseur_Click">
+                                <Image Source="icons/icons8_calendar_48px.png"/>
+                            </Button>
+
+                        </StackPanel>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </Grid>
+
+
+    </Grid>
+</Window>

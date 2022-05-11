@@ -1,0 +1,281 @@
+﻿<Window x:Class="ebosy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ebosy"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="e-Bosy" Height="600" Width="800"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown">
+    <Window.Resources>
+        <ImageBrush x:Key="umsk_password"
+                    ImageSource="icons/invisible.png"/>
+
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="Teal"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontWeight" Value="Light"/>
+
+            <Setter Property="Background" Value="Transparent"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border BorderBrush="teal"
+                                BorderThickness="2"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="20">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Teal"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ButtonCloseStyle" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border BorderBrush="White"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ButtonShowPasswordStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource umsk_password}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="TextBlockForgotPassewordStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="TextTrimming" Value="None"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="TextDecorations" Value="Underline"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.Background>
+                <SolidColorBrush Color="Teal"/>
+            </Grid.Background>
+
+            <Grid Height="600" Margin="0,0,0.2,0" VerticalAlignment="Top">
+                <Grid.Background>
+                    <SolidColorBrush Color="White"/>
+                </Grid.Background>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="6*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1">
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="Bonjour!"
+                                   FontWeight="Bold"
+                                   FontSize="32"
+                                   Foreground="teal"
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="Connectez-vous à votre compte"
+                                   FontWeight="Bold"
+                                   FontSize="22"
+                                   Foreground="teal"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+                <StackPanel Grid.Row="2">
+
+                    <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                        <TextBox materialDesign:HintAssist.Hint="E-mail"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 x:Name="TextBoxMail"
+                                 Margin="40,0,0,0"
+                                 FontFamily="Arial"
+                                 FontWeight="Light"
+                                 FontSize="14"
+                                 Width="250"
+                                 Height="42"
+                                 Foreground="Teal"/>
+                        <Image Source="icons/mail.png"
+                               Width="30" Height="30"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               />
+                    </StackPanel>
+
+                    <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="0,40,0,0">
+                        <PasswordBox materialDesign:HintAssist.Hint="Mot de passe"
+                                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                                     FontFamily="Arial"
+                                     FontWeight="Light"
+                                     FontSize="14"
+                                     Width="250"
+                                     Height="42"
+                                     Margin="40,0,0,0"
+                                     Foreground="Teal"
+                                     x:Name="PasswordBox"/>
+                        <Button Background="Transparent"
+                                BorderBrush="Transparent"
+                                x:Name="VoirMotDePasse"
+                                Style="{DynamicResource ButtonShowPasswordStyle}">
+                            <Image Source="icons/eye.png"
+                               Width="30" Height="30"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"/>
+                        </Button>
+                    </StackPanel>
+
+                    <TextBlock Text="Mot de passe oublié?"
+                           Foreground="Teal"
+                           Margin="0,10,35,0"
+                           HorizontalAlignment="Right"
+                           x:Name="LabelMotDePasseOublier"
+                           Style="{DynamicResource TextBlockForgotPassewordStyle}"/>
+
+                    <StackPanel Orientation="Vertical"
+                                Margin="0,20,42,0"
+                                HorizontalAlignment="Right"
+                                Height="180">
+                        <Button Width="270"
+                                Height="40"
+                                Content="CONNEXION"
+                                Margin="40,0,0,0"
+                                Style="{DynamicResource ButtonStyle}"
+                                x:Name="ButtonConnexion" Click="ButtonConnexion_Click">
+                        </Button>
+                        <Button Width="270"
+                                Height="40"
+                                Content="DEVENIR PROFESSEUR"
+                                Margin="40,20,0,0"
+                                Style="{DynamicResource ButtonStyle}"
+                                x:Name="ButtonDevenirProfesseur" Click="ButtonDevenirProfesseur_Click">
+                        </Button>
+                        <Button Width="270"
+                                Height="40"
+                                Content="CRÉER UNE FAMILLE"
+                                Margin="40,20,0,0"
+                                Style="{DynamicResource ButtonStyle}"
+                                x:Name="ButtonCreerUneFamille" Click="ButtonCreerUneFamille_Click">
+
+                        </Button>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+
+                    <Button Height="30"
+                            Width="30"
+                            x:Name="ButtonFermer"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            HorizontalAlignment="Right"
+                            Margin="10"
+                            Style="{DynamicResource ButtonCloseStyle}" Click="ButtonFermer_Click">
+                        <Image Source="icons/close.png"
+                           HorizontalAlignment="Right"
+                           Width="30"
+                           Height="30"
+                           />
+                    </Button>
+                    <TextBlock Grid.Row="1"
+                               Text="BIENVENU"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontWeight="Bold"
+                               FontSize="42"
+                               Foreground="White"
+                               FontFamily="Arial"/>
+                </Grid>
+                <Image Grid.Row="1"
+                       Source="img/e-bosyFotsy.png"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Width="400"
+                       Height="200"/>
+                <StackPanel Grid.Row="2"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                    <TextBlock TextWrapping="Wrap"
+                               Margin="40,0,40,0"
+                               Foreground="White"
+                               FontSize="12"
+                               FontFamily="Arial"
+                               FontStyle="Italic">
+                        <TextBlock.Text>
+                            Le premier objectif de ce projet est d'être social et pour garder la solidarité entre les parents et les enseignants.
+En fait, nous devons créer une application qui pourrait se connecter des enseignants du monde entier et des parents qui veulent donner des opportunités à leurs enfants de réviser leurs leçons malgré la situation COVID.
+                        </TextBlock.Text>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</Window>

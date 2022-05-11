@@ -1,0 +1,33 @@
+﻿<Window x:Class="ebosy.vue.CalendrierConsulter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ebosy.vue"
+        mc:Ignorable="d"
+        Background="White"
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Title="CalendrierConsulte" Height="670" Width="700" Loaded="Window_Loaded">
+    <Grid>
+        <ScrollViewer>
+            <StackPanel x:Name="SpCardCalendrier"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top">
+            </StackPanel>
+        </ScrollViewer>
+        <Button Height="30"
+                        Width="30"
+                        HorizontalAlignment="Right"
+                        BorderThickness="0"
+                        x:Name="ButtonClose"
+                        Margin="0,15,14.6,14.2" Click="ButtonClose_Click"
+                VerticalAlignment="Top">
+            <Button.Background>
+                <ImageBrush ImageSource="icons/close.png"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>

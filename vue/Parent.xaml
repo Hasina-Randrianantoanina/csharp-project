@@ -1,0 +1,307 @@
+﻿<Window x:Class="ebosy.vue.Parent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ebosy.vue"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Espace Adulte" Height="768" Width="1024"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Window.Resources>
+
+        <Style x:Key="font_style" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Rockwell"/>
+            <Setter Property="Foreground" Value="#F2F2F2"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Light"/>
+        </Style>
+
+        <Style TargetType="ToolTip" x:Key="tt_style">
+            <Setter Property="Placement" Value="Right"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Background" Value="Teal"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#F2F2F2"/>
+            <Setter Property="FontFamily" Value="Rockwell"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="PlacementRectangle" Value="60,0,0,0"/>
+            <Setter Property="HorizontalOffset" Value="15"/>
+            <Setter Property="VerticalOffset" Value="6"/>
+            <Setter Property="HasDropShadow" Value="True"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+
+        </Style>
+    </Window.Resources>
+
+
+    <Grid Background="#F2F2F2">
+
+        <Grid Background="Transparent">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="12*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="nav_pnl">
+                <Grid.Background>
+                    <SolidColorBrush Color="#008080"/>
+                </Grid.Background>
+                <StackPanel x:Name="st_pnl">
+
+                    <ListView x:Name="LV"
+                          Background="Transparent"
+                          BorderBrush="Transparent"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Margin="0,50,0,50">
+                        <Button
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Foreground="White"
+                            Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                            x:Name="ButtonAccueil" Click="ButtonAccueil_Click">
+                            <materialDesign:PackIcon
+                                Kind="Home"
+                                Height="24"
+                                Width="24" />
+                            <Button.ToolTip>
+                                <ToolTip Background="Teal" 
+                                         Content="Accueil"
+                                         Style="{StaticResource tt_style}"/>
+                            </Button.ToolTip>
+                        </Button>
+
+                        <Button
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Foreground="White"
+                            Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                            x:Name="ButtonAjouterCompteEnfant" Click="ButtonAjouterCompteEnfant_Click">
+                            <materialDesign:PackIcon
+                                Kind="AccountsAdd"
+                                Height="24"
+                                Width="24" />
+                            <Button.ToolTip>
+                                <ToolTip Background="Teal" 
+                                         Content="Ajouter un compte Enfant"
+                                         Style="{StaticResource tt_style}"/>
+                            </Button.ToolTip>
+                        </Button>
+
+                        <Button
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Foreground="White"
+                            Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                            x:Name="ButtonListeParrainer" Click="ButtonListeParrainer_Click">
+                            <materialDesign:PackIcon
+                                Kind="ListStatus"
+                                Height="24"
+                                Width="24"/>
+                            <Button.ToolTip>
+                                <ToolTip Background="Teal" 
+                                         Content="Professeur adorer"
+                                         Style="{StaticResource tt_style}"/>
+                            </Button.ToolTip>
+                        </Button>
+
+                        <Button
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Foreground="White"
+                            x:Name="ButtonEnvoyerMail"
+                            Style="{StaticResource MaterialDesignFloatingActionLightButton}" Click="ButtonEnvoyerMail_Click">
+                            <materialDesign:PackIcon
+                                Kind="SendSecure"
+                                Height="24"
+                                Width="24" />
+                            <Button.ToolTip>
+                                <ToolTip Background="Teal" 
+                                         Content="Parrainer"
+                                         Style="{StaticResource tt_style}"/>
+                            </Button.ToolTip>
+                        </Button>
+
+                        <Button
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Foreground="White"
+                            Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                            x:Name="ButtonChat" Click="ButtonChat_Click">
+                            <materialDesign:PackIcon
+                                Kind="Wechat"
+                                Height="24"
+                                Width="24" />
+                            <Button.ToolTip>
+                                <ToolTip Background="Teal" 
+                                         Content="Message"
+                                         Style="{StaticResource tt_style}"/>
+                            </Button.ToolTip>
+                        </Button>
+
+                        <Button
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Foreground="White"
+                            Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                            x:Name="ButtonNotification">
+                            <materialDesign:PackIcon
+                                Kind="NotificationsActive"
+                                Height="24"
+                                Width="24" />
+                            <Button.ToolTip>
+                                <ToolTip Background="Teal" 
+                                         Content="Notification"
+                                         Style="{StaticResource tt_style}"/>
+                            </Button.ToolTip>
+
+                        </Button>
+
+                        <Button
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Foreground="White"
+                            Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                            x:Name="ButtonVisio">
+                            <materialDesign:PackIcon
+                                Kind="VideoFilm"
+                                Height="24"
+                                Width="24" />
+                            <Button.ToolTip>
+                                <ToolTip Background="Teal" 
+                                         Content="Visio-conférence"
+                                         Style="{StaticResource tt_style}"/>
+                            </Button.ToolTip>
+                        </Button>
+
+                        <Button
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Foreground="White"
+                            Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                            x:Name="ButtonDeconnexion">
+                            <materialDesign:PackIcon
+                                Kind="Logout"
+                                Height="24"
+                                Width="24" />
+                            <Button.ToolTip>
+                                <ToolTip Background="Teal" 
+                                         Content="Déconnexion"
+                                         Style="{StaticResource tt_style}"/>
+                            </Button.ToolTip>
+                        </Button>
+                    </ListView>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="127*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,-0.4,698" Grid.RowSpan="2">
+
+                    <materialDesign:ColorZone
+                        Background="Teal"
+                        Mode="PrimaryMid">
+                        <DockPanel>
+                            <StackPanel
+                                Orientation="Horizontal"
+                                materialDesign:RippleAssist.IsCentered="True">
+                                <materialDesign:ColorZone
+                                    Mode="Standard"
+                                    Padding="10"
+                                    CornerRadius="2"
+                                    Panel.ZIndex="1"
+                                    Margin="50 10 0 10"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition
+                                                Width="Auto" />
+                                            <ColumnDefinition
+                                                Width="*" />
+                                            <ColumnDefinition
+                                                Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Button
+                                            Style="{DynamicResource MaterialDesignToolButton}">
+                                            <materialDesign:PackIcon
+                                                Foreground="Teal"
+                                                Kind="Magnify"
+                                                Opacity=".56" />
+                                        </Button>
+                                        <TextBox
+                                            Foreground="Teal"
+                                            Grid.Column="1"
+                                            materialDesign:HintAssist.Hint="Recherche"
+                                            Width="300"
+                                            x:Name="TextBoxRecherche" KeyDown="TextBoxRecherche_KeyDown"/>
+                                        <Button
+                                            Style="{DynamicResource MaterialDesignToolButton}"
+                                            Grid.Column="2">
+                                            <materialDesign:PackIcon
+                                                Kind="Microphone"
+                                                Opacity=".56"
+                                                Margin="8 0 0 0" />
+                                        </Button>
+                                    </Grid>
+                                </materialDesign:ColorZone>
+
+                            </StackPanel>
+                        </DockPanel>
+                    </materialDesign:ColorZone>
+
+                    <materialDesign:Chip
+                        x:Name="identifiant"
+                        HorizontalAlignment="Right"
+                        Margin="0 0 75 0"
+                        Foreground="Teal"
+                        Background="White"
+                        Content="Andry Razanatovo">
+                        <materialDesign:Chip.Icon>
+                            <Image
+                                x:Name="Picture"
+                                Source="image/Andry.jpg" />
+                        </materialDesign:Chip.Icon>
+                    </materialDesign:Chip>
+
+                    <Button Height="30"
+                        Width="30"
+                        HorizontalAlignment="Right"
+                        BorderThickness="0"
+                        x:Name="ButtonClose"
+                        Margin="0,15,14.6,14.2" Click="ButtonClose_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="icons/close.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Grid>
+                        <Image Source="image/e-bosy2.png"
+                               Margin="-681,0,322.6,0.4"
+                               Width="90"/>
+                    </Grid>
+
+                </Grid>
+
+                <ContentControl Grid.Row="1"
+                                x:Name="ContentControlParent"
+                                Margin="20,20.4,19.6,20" Grid.ColumnSpan="2"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
